@@ -33,17 +33,19 @@ pipeline {
 		}
 		stage('Tag Docker Image') {
 			steps {
-				script { 
+				/*script { 
 					pom = readMavenPom file: 'pom.xml'
-				}
-				sh "docker tag addressbook:latest ramu215/addressbook:${pom.version}"
+				}*/
+				/*sh "docker tag addressbook:latest ramu215/addressbook:${pom.version}"*/
+                sh "docker tag addressbook:latest ramu215/addressbook"
 			}
 		}
 		stage('Push Docker Image') {
 			steps {
 				withCredentials([usernamePassword(credentialsId: 'DOCKER_CREDS', passwordVariable: 'DOCKER_HUB_PWD', usernameVariable: 'DOCKER_HUB_USER')]) {
 					sh 'docker login -u $DOCKER_HUB_USER -p $DOCKER_HUB_PWD'
-					sh "docker push ramu215/addressbook:${pom.version}"
+					/*sh "docker push ramu215/addressbook:${pom.version}"*/
+                    sh "docker push ramu215/addressbook"
 				}
 			}
 		}
