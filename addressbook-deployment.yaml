@@ -1,0 +1,18 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: addressbook-deployment
+  spec:
+   selector:
+    matchLabels:
+      app: addressbook-project
+  template:
+    metadata:
+      labels:
+        app: addressbook-project
+    spec:
+      containers:
+      - name: addressbook-project
+        image: ramu215/addressbook
+        ports:
+        - containerPort: 8080
