@@ -3,12 +3,12 @@ kind: Service
 metadata:
   name: addressbook-service
   labels:
+    app: addressbook-service      
+spec:
+  selector:
     app: addressbook-project
-  spec:
-    selector:
-      app: addressbook-project
-    type: NodePort
-    ports:
-     -port: 8080
+  type: NodePort
+  ports:
+    - port: 8080
       targetPort: 8080
       nodePort: 30180
