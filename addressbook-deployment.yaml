@@ -13,8 +13,8 @@ spec:
         app: addressbook-project
     spec:
       containers:
-       -name: addressbook-project
+      - name: addressbook-project
         image: ramu215/addressbook
       
         ports:
-        -containerPort: 8080
+        - containerPort: 8080
